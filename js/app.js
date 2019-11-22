@@ -213,9 +213,7 @@ function timer() {
         minutes++;
     }
   
-    $( ".timer-seconds" ).text(twoDigits(seconds));
-    $( ".timer-minutes" ).text(minutes);
-
+    updateTimer()
     runTimer();
 }
 
@@ -227,10 +225,12 @@ function runTimer() {
 function resetTimer() {
     stopTimer();
     seconds = 0; minutes = 0;
+    updateTimer()
+}
 
-    $( ".timer-seconds" ).text(twoDigits(seconds));
-    $( ".timer-minutes" ).text(minutes);
-
+function updateTimer(){
+    document.querySelectorAll(".timer-seconds").forEach(item=> item.textContent = twoDigits(seconds));
+    document.querySelectorAll(".timer-minutes").forEach(item=> item.textContent = twoDigits(minutes));
 }
 
 function stopTimer() {
