@@ -88,9 +88,9 @@ function initGame() {
 // 6. If reach maximum pairs, end the game, show congrats message
 // ============================================
 
-  document.querySelectorAll(".card").forEach((card) => {
-    console.log("our own function worked");
-  });
+  // document.querySelectorAll(".card").forEach((card) => {
+  //   console.log("our own function worked");
+  // });
 
   $(".card" ).click(function() {
 
@@ -140,20 +140,26 @@ function match() {
   opened = [];
 
   document.querySelectorAll(".show").forEach((matchedCard) => {
-   matchedCard.classList.add('match','animated','flip')
-   matchedCard.classList.remove('show')
+    matchedCard.classList.add('match','animated','flip')
+    matchedCard.classList.remove('show')
   });
 
 };
 
 
+
 function unmatch() {
   numMoves++;
   opened = [];
-  $('.show:not(.match)').removeClass().addClass('card show unmatch animated shake');
-  setTimeout(function(){
-    $('.unmatch').removeClass().addClass('animated flipInY card');
-  }, 600);
+
+  document.querySelectorAll(".show:not(.match)").forEach((unmatchedCard) => {
+    unmatchedCard.classList = 'card show unmatch animated shake';
+    document.querySelectorAll('.unmatch').forEach((unmatchedCard) => {
+      setTimeout(function() {
+        unmatchedCard.classList = 'animated flipInY card';
+      }, 600);
+    })
+  });
 };
 
 
