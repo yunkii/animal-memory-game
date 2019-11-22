@@ -186,12 +186,12 @@ function starCount() {
 // print "stars", "moves", "matches" to the page
 
 function printStars() {
-     $('.stars').empty().append(showStar[numStars-1]);
+  document.querySelectorAll('.stars').forEach(panel => panel.innerHTML = showStar[numStars-1])
 }
 
 
 function printMoves(){
-  $( ".moves" ).text(numMoves);
+  document.querySelectorAll('.moves').forEach(move => move.textContent = numMoves)
 }
 
 
