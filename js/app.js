@@ -20,13 +20,11 @@ let numStars = 3;
 let numMatch = 0;
 let numMoves = 0;
 
-
 // Timers 
 
 let seconds = 0;
 let minutes = 0;
 let t;
-
 
 
 const showStar = ['<li><i class="fa fa-star"></i></li><li><i class="fa fa-star-o"></i></li><li><i class="fa fa-star-o"></i></li>',  // 1 star
@@ -61,8 +59,8 @@ function shuffle(array) {
 
 
 function initGame() {
-   $('.overlay').hide();
-   $('.deck').empty();
+   document.querySelector('.overlay').style.display = 'none';
+   document.querySelector('.deck').innerHTML = '';
    shuffle(possibleCards);
    opened = [];
    numStars = 3;
@@ -75,7 +73,7 @@ function initGame() {
 
 
    for(i=0;i<numCards;i++) {
-        $('.deck').append($('<li class="card"><img src="img/animal/' + possibleCards[i] + '.svg"/></li>'));
+        document.querySelector('.deck').innerHTML += `<li class="card"><img src="img/animal/${possibleCards[i]}.svg"/></li>`;
    };
 
 
