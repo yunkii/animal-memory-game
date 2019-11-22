@@ -88,6 +88,10 @@ function initGame() {
 // 6. If reach maximum pairs, end the game, show congrats message
 // ============================================
 
+  document.querySelectorAll(".card").forEach((card) => {
+    console.log("our own function worked");
+  });
+
   $(".card" ).click(function() {
 
     if ($(this).hasClass('show')){
@@ -134,8 +138,11 @@ function match() {
   numMoves++;
   numMatch++;
   opened = [];
-  $('.show').addClass('match animated flip');
-  $('.show').removeClass('.show');
+
+  document.querySelectorAll(".show").forEach((matchedCard) => {
+   matchedCard.classList.add('match','animated','flip')
+   matchedCard.classList.remove('show')
+  });
 
 };
 
