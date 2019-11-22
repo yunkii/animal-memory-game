@@ -128,7 +128,6 @@ function initGame() {
 
 initGame();
 
-
 // ============================================
 // Match + Unmatch function
 // ============================================
@@ -242,11 +241,11 @@ function stopTimer() {
 // Restart
 // ============================================
 
-
-$('.restart').click(function() {
+document.querySelectorAll('.restart').forEach(item=>
+  item.addEventListener("click", function(){
     initGame();
-});
-
+  })
+);
 
 // ============================================
 // Congrats Message
@@ -261,9 +260,12 @@ function congrats() {
   stopTimer();
   setTimeout(function(){
       // switch messages and images base on number of stars
-      $('.switch-msg').empty().prepend($('<h2>' + finishMsg[numStars-1] + '</h2>'));
-      $('.switch-msg').prepend($('<img src="img/animal/' + finishImg[numStars-1] + '.svg" alt="" width="300">'));
-      $('.overlay-content').addClass('animated bounceIn')
+      document.querySelector('.switch-msg').innerHTML = 
+      `
+        <h2>${finishMsg[numStars-1]}</h2>
+        <img src="img/animal/${finishImg[numStars-1]}.svg" alt="" width="300">
+      `
+      document.querySelector('.overlay-content').classList.add('animated','bounceIn')
   }, 100);
 
   setTimeout(function(){
@@ -271,7 +273,5 @@ function congrats() {
   }, 300);
 
 };
-
-
 
 
