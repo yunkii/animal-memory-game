@@ -88,19 +88,16 @@ function initGame() {
 // 6. If reach maximum pairs, end the game, show congrats message
 // ============================================
 
-  // document.querySelectorAll(".card").forEach((card) => {
-  //   console.log("our own function worked");
-  // });
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", function () {
 
-  $(".card" ).click(function() {
-
-    if ($(this).hasClass('show')){
+    if (card.classList.contains('show')){
       return; // exit function if the card is already opened.
     }
 
-    $(this).addClass('show animated flipInY');
+    card.classList.add('show','animated','flipInY');
 
-    let currentCard = $(this).context.innerHTML;
+    let currentCard = card.innerHTML;
     opened.push(currentCard);
 
 
@@ -121,13 +118,13 @@ function initGame() {
       congrats();
     }
 
+    })
   });
 
 };
 
 
 initGame();
-
 // ============================================
 // Match + Unmatch function
 // ============================================
@@ -269,9 +266,7 @@ function congrats() {
   }, 100);
 
   setTimeout(function(){
-      $('.overlay').fadeIn(100);
+     document.querySelector('.overlay').style.display = 'block'
   }, 300);
 
 };
-
-
