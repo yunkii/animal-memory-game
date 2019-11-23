@@ -24,8 +24,7 @@ This game is using 3-star rating system. Depends on the result, different messag
 
 ## Dependencies
 
-This game is using Vanilla Javascript and [Animated CSS](https://daneden.github.io/animate.css/).
-
+This game is using vanilla javascript and [Animated CSS](https://daneden.github.io/animate.css/).
 
 ## Credit
 
